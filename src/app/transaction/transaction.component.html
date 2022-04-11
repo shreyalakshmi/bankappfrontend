@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="./transaction.component.css">
+<a routerLink="/dashboard" style=" margin-left: 1414px;">HOME</a>
+<div class="container">
+
+    <div class="row mt-5">
+
+        <div class="col-3">   </div>
+        <div class="col-6 mt-5">
+            <h3>TRANSACTION HISTORY</h3>
+
+            <table style="border: white 2px solid; width: 500px;">
+                <tr style="height: 50px;">
+                   <th>No</th>
+                    <th>TYPE</th>
+
+                    <th>AMOUNT</th>
+                </tr>
+                <tbody style="border: white 2px solid; width: 500px;">
+                    <tr *ngFor="let transaction of transactions; let i=index">
+                        <th>{{i+1}}</th>
+                        <th>{{transaction.type}}</th>
+                        <th>{{transaction.amount}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+</div>

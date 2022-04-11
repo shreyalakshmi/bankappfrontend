@@ -1,0 +1,70 @@
+<nav class="navbar navbar-light bg-dark " >
+    <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; SAFE Banks Pvt.Ltd  </b></a>
+    <span class="quote text-light">The Safest Way!</span>
+  </nav>
+  
+  <h5 style="color: white; text-align: center;"></h5>
+  <div class="container col-md-12 mt-0">
+      <div class="d-flex justify-content-center h-100">
+          <div class="card">
+              <div class="card-header">
+                  <h3 class="text-center">Sign In</h3>
+                  
+              </div>
+              <div class="card-body">
+                  <form [formGroup]="registerForm" (ngSubmit)="register()" >
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                       
+                        <!--EVENT BINDING USING "function($event)" (change)="get_accno($event)"   (change)="get_pswd($event)"  -->
+                        <!-- TEMPLATE REFERENCING VARIABLE #variable name -->
+                        <!--FOR TEMPLATE DRIVEN:- Two way binding [(ngModel)]="acno" -->
+                        <!-- FOR MODEL DRIVEN:-formControlName -->
+                        <input type="text" class="form-control" formControlName="uname" name="uname" [placeholder]="username" id="reg_uname" required>
+                        
+                    </div>
+
+<!-- form validation(to get in red clr) -->
+<div *ngIf="(this.registerForm.get('uname')?.touched||this.registerForm.get('uname')?.dirty)&&this.registerForm.get('uname')?.errors" style="color: red ;">INVALID USERNAME</div>
+<!-- touched&dirty for verifying the form is clicked and filled then only msg will display in red -->
+
+
+
+                      <div class="input-group form-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          </div>
+                         
+                          <!--EVENT BINDING USING "function($event)" (change)="get_accno($event)"   (change)="get_pswd($event)"  -->
+                          <!-- TEMPLATE REFERENCING VARIABLE #variable name -->
+                          <!-- Two way binding [(ngModel)]="acno" -->
+                          <input type="text" class="form-control" formControlName="acno" name="acno" [placeholder]="accno" id="reg_accno" required>
+                          
+                      </div>
+<div *ngIf="(this.registerForm.get('acno')?.touched||this.registerForm.get('acno')?.dirty)&&this.registerForm.get('acno')?.errors" style="color: red ;">INVALID ACC NO</div>
+
+
+
+                      <div class="input-group form-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-key"></i></span>
+                          </div>
+                          <input type="password" class="form-control" formControlName="pswd" name="pswd" placeholder="password" id="reg_password" required>
+                      </div>
+ <div *ngIf="(this.registerForm.get('pswd')?.touched||this.registerForm.get('pswd')?.dirty)&&this.registerForm.get('pswd')?.errors" style="color: red ;">INVALID PASSWORD</div>
+
+
+                      
+                      <div class="form-group">
+                          <input type="submit" value="register"  class="btn float-right login_btn " style="width:50%" >
+                      </div>
+                  </form>
+              </div>
+              <p style="color:white;align-items:baseline;">Already a user? <a routerLink="">LOGIN</a></p>
+          </div>
+      </div>
+  </div>
+  
